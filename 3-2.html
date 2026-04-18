@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>3.2</title>
+</head>
+<body>
+<script>
+    function randomColor() {
+        let r = Math.floor(Math.random() * 256);
+        let g = Math.floor(Math.random() * 256);
+        let b = Math.floor(Math.random() * 256);
+        return `rgb(${r}, ${g}, ${b})`;
+    }
+
+    function generatePalette(n) {
+        let palette = [];
+        for (let i = 0; i < n; i++) {
+            palette[i] = randomColor();
+        }
+        return palette;
+    }
+
+    let n = Number(prompt("Сколько цветов вы хотите получить?"));
+    let colors = generatePalette(n);
+
+    for (let i = 0; i < colors.length; i++) {
+        alert(`Цвет ${i + 1}: ${colors[i]}`);
+    }
+</script>
+</body>
+</html>

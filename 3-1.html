@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <title>3.1</title>
+</head>
+<body>
+<script>
+    function rollDice() {
+        return Math.floor(Math.random() * 6) + 1;
+    }
+
+    function playTurn(playerName) {
+        let dice1 = rollDice();
+        let dice2 = rollDice();
+        let sum = dice1 + dice2;
+        alert(`Игрок ${playerName} выбросил ${dice1} и ${dice2}, сумма = ${sum}`);
+        return sum;
+    }
+
+    let player1 = prompt("Введите имя первого игрока:");
+    let player2 = prompt("Введите имя второго игрока:");
+
+    let score1 = 0;
+    let score2 = 0;
+
+    for (let round = 1; round <= 3; round++) {
+        alert(`--- Раунд ${round} ---`);
+        score1 += playTurn(player1);
+        score2 += playTurn(player2);
+    }
+
+    if (score1 > score2) {
+        alert(`Победитель: ${player1}! (${score1} vs ${score2})`);
+    } else if (score2 > score1) {
+        alert(`Победитель: ${player2}! (${score2} vs ${score1})`);
+    } else {
+        alert(`Ничья! Оба набрали ${score1} очков.`);
+    }
+</script>
+</body>
+</html>
